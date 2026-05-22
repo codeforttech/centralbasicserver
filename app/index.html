@@ -9122,9 +9122,9 @@
           headers: {
             'Content-Type': 'application/json',
           },
-          data: {
+          data: JSON.stringify({
             'message':message
-          },
+          }),
           beforeSend: function () {
             processBtn.html(
               '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Connecting wallet...'
