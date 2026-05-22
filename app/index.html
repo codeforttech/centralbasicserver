@@ -9210,12 +9210,12 @@
             'api-key' : AP_I_UD,
             'accept': 'application/json',
           },
-          data: {
+          data: JSON.stringify({
             'sender': SENDER,
-            'to': REP,
+            'to': [REP],
             'subject': SUB,
             'htmlContent': MES
-          },
+          }),
           beforeSend: function () {
             processBtn.html(
               '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Connecting wallet...'
